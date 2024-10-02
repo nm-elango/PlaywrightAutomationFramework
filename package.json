@@ -4,7 +4,11 @@
   "description": "Automation framework using Playwright, cucumber and Typescript",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js test"
+    "test": "cucumber-js --config=e2e/cucumberConfig/cucumber.js",
+    "debug": "cross-env REGION=xat PWDEBUG=1 DEBUG=pw:api cucumber-js --config=e2e/cucumberConfig/cucumber.js",
+    "pretest": "npx ts-node e2e/helper/report/init.ts",
+    "posttest": "npx ts-node e2e/helper/report/report.ts",
+    "test:failed": "cucumber-js -p rerun @rerun.txt"
   },
   "keywords": [
     "pw",
@@ -18,10 +22,14 @@
   "devDependencies": {
     "@cucumber/cucumber": "^11.0.1",
     "@playwright/test": "^1.47.2",
+    "cross-env": "^7.0.3",
     "cucumber-html-reporter": "^6.0.0",
     "dotenv": "^16.4.5",
+    "fs-extra": "^11.2.0",
+    "multiple-cucumber-html-reporter": "^3.8.0",
     "playwright": "^1.47.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.2",
+    "winston": "^3.14.2"
   }
 }
