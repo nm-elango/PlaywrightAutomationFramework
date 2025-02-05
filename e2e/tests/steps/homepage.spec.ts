@@ -10,8 +10,8 @@ Given('user is on home page', async function () {
 
 When('the user enter the login details, login should be successful', async function () {
   await fixture.page.locator("xpath=//a[contains(.,'My account') and @data-toggle]").click();
-  await fixture.page.locator("xpath=//input[@id='input-email']").fill('test2024@test.com');
-  await fixture.page.locator("xpath=//input[@id='input-password']").fill('pcfn0123');
+  await fixture.page.locator("xpath=//input[@id='input-email']").fill('doesntwork');
+  await fixture.page.locator("xpath=//input[@id='input-password']").fill('dummypass');
   await fixture.page.locator("xpath=//input[@value='Login']").click();
 });
 
